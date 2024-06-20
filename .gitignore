@@ -1,0 +1,6 @@
+/node_modules
+/vendor
+/sail_make
+/builders
+/docker-compose-db.yml
+/docker-compose-dev.yml
