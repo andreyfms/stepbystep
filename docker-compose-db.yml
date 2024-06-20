@@ -1,0 +1,30 @@
+name: stepbystep-db
+
+networks:
+  proxy:
+    name: proxy
+    external: true
+
+services:
+   mysql:
+     container_name: mysql
+     image: mysql:8
+     platform: linux/amd64
+     ports:
+         - '3306:3306'
+     security_opt:
+         - seccomp:unconfined
+     environment:
+       MYSQL_ROOT_PASSWORD: 'pwd123'
+       # MYSQL_ROOT_HOST: "%"
+       MYSQL_DATABASE: 'stepbystepdb'
+       MYSQL_USER: 'db_user'
+       MYSQL_PASSWORD: 'pwd123'
+     volumes:
+       - mysql8:/var/lib/mysql
+     networks:
+       - proxy
+
+volumes:
+  mysql8:
+
